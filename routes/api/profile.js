@@ -7,6 +7,9 @@ const passport = require("passport");
 const Profile = require("../../models/Profile");
 const User = require("../../models/User");
 
+// Loading input validation
+const validateProfileInput = require("../../validation/profile");
+
 // all routes already start with /api/profile
 
 // @route   GET api/profile
@@ -20,6 +23,8 @@ router.get(
 
     // get current user
     Profile.findOne({ user: req.user.id })
+      //populate fills out user field w user information instead of just ID
+      .populate("user", ["firstName", "lastName", "avatar", "username"])
       .then(profile => {
         if (!profile) {
           errors.noProfile = "There is no profile for this user";
@@ -39,6 +44,13 @@ router.post(
   "/",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
+    const { errors, isValid } = validateProfileInput(req.body);
+
+    // Check for validation
+    if (!isValid) {
+      return res.status(400).json(errors);
+    }
+
     // Get fields from request
     const profileFields = {};
     profileFields.user = req.user.id;
@@ -52,9 +64,11 @@ router.post(
       profileFields.githubUsername = req.body.githubUsername;
     if (req.body.linkedin) profileFields.linkedin = req.body.linkedin;
 
-    // splitting skills into an array
+    // splitting skills into an array, remov surround whitespace
     if (typeof req.body.skills !== "undefined") {
-      profileFields.skills = req.body.skills.split(",");
+      profileFields.skills = req.body.skills.split(",").map(item => {
+        return item.trim();
+      });
     }
 
     // Finding current user
