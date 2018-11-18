@@ -37,7 +37,7 @@ const ProfileSchema = new Schema({
     type: String,
     required: true
   },
-  githubUseranme: {
+  githubUsername: {
     type: String
   },
   experience: [
@@ -114,7 +114,7 @@ const ProfileSchema = new Schema({
   linkedin: {
     type: String
   },
-  data: {
+  date: {
     type: Date,
     defualt: Date.now
   }
