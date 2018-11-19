@@ -13,7 +13,7 @@ class Landing extends Component {
           <Link class="btn btn-primary" to="/register" role="button">
             Sign Up
           </Link>
-          <Link class="btn btn-primary" to="#" role="button">
+          <Link class="btn btn-primary" to="/login" role="button">
             Log In
           </Link>
           <Link class="btn btn-primary" to="#" role="button">
