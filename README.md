@@ -1,3 +1,1 @@
-# Design Decisions
-
-## users will hold authentication logic, profile will hold actual user account details
+## Command to run server and client: npm run dev
