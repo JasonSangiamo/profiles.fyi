@@ -61,7 +61,7 @@ const ProfileSchema = new Schema({
       // to date not required because jobmay be ongoing
       to: {
         type: Date,
-        required: true
+        default: Date.now()
       },
       current: {
         type: Boolean,
@@ -74,7 +74,7 @@ const ProfileSchema = new Schema({
     }
   ],
 
-  educaton: [
+  education: [
     {
       school: {
         type: String,
@@ -99,7 +99,7 @@ const ProfileSchema = new Schema({
       // to date not required because jobmay be ongoing
       to: {
         type: Date,
-        required: true
+        default: Date.now()
       },
       current: {
         type: Boolean,

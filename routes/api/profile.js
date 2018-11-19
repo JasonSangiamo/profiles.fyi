@@ -9,6 +9,8 @@ const User = require("../../models/User");
 
 // Loading input validation
 const validateProfileInput = require("../../validation/profile");
+const validateExperienceInput = require("../../validation/experience");
+const validateEducationInput = require("../../validation/education");
 
 // all routes already start with /api/profile
 
@@ -165,6 +167,77 @@ router.post(
           }
         });
       }
+    });
+  }
+);
+
+// @route   POST api/profiles/experience
+// @desc    Add an experinece to profile of current user
+// @access  private
+router.post(
+  "/experience",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    const { errors, isValid } = validateExperienceInput(req.body);
+
+    // Check for validation
+    if (!isValid) {
+      return res.status(400).json(errors);
+    }
+
+    // Find current user
+    Profile.findOne({ user: req.user.id }).then(profile => {
+      //get fields from request
+      const newExp = {
+        title: req.body.title,
+        company: req.body.company,
+        location: req.body.location,
+        from: req.body.from,
+        to: req.body.to,
+        current: req.body.current,
+        description: req.body.description
+      };
+
+      // Add to profile experience start of array
+      profile.experience.unshift(newExp);
+
+      profile.save().then(profile => res.json(profile));
+    });
+  }
+);
+
+// @route   POST api/profiles/education
+// @desc    Add education to profile of current user
+// @access  private
+router.post(
+  "/education",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    const { errors, isValid } = validateEducationInput(req.body);
+
+    // Check for validation
+    if (!isValid) {
+      return res.status(400).json(errors);
+    }
+
+    // Find current user
+    Profile.findOne({ user: req.user.id }).then(profile => {
+      //get fields from request
+      const newEdu = {
+        school: req.body.school,
+        degree: req.body.degree,
+        location: req.body.location,
+        fieldOfStudy: req.body.fieldOfStudy,
+        from: req.body.from,
+        to: req.body.to,
+        current: req.body.current,
+        description: req.body.description
+      };
+
+      // Add to profile education start of array
+      profile.education.unshift(newEdu);
+
+      profile.save().then(profile => res.json(profile));
     });
   }
 );

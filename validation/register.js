@@ -55,7 +55,7 @@ module.exports = function validateRegisterInput(data) {
   }
   return {
     errors: errors,
-    // only valid id there are no errors
+    // only valid if there are no errors
     isValid: isEmpty(errors)
   };
 };

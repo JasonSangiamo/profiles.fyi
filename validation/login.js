@@ -19,7 +19,7 @@ module.exports = function validateLoginInput(data) {
 
   return {
     errors: errors,
-    // only valid id there are no errors
+    // only valid if there are no errors
     isValid: isEmpty(errors)
   };
 };
