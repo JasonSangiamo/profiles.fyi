@@ -37,6 +37,14 @@ img {
   padding-top: 80px;
 }
 
+#register-header {
+  width: 100%;
+}
+
+#register-form {
+  width: 50%;
+}
+
 .dark-overlay {
   background-color: rgba(0, 0, 0, 0.7);
   position: absolute;
