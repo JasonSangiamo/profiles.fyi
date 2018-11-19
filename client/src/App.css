@@ -2,11 +2,32 @@ img {
   width: 100%;
 }
 
+.btn {
+  margin: 5px;
+}
+.navbar {
+  margin-bottom: 30px;
+}
+
+.landing-header {
+  padding-top: 90px;
+  text-shadow: 2px 2px black;
+  font-weight: bold;
+}
+
+.landing-subheader {
+  font-size: 1em;
+  text-shadow: 1px 1px black;
+}
+
 .landing {
   position: relative;
   background: url("./img/showcase.jpg") no-repeat;
-  background-size: cover;
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
   background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   height: 100vh;
   margin-top: -24px;
   margin-bottom: -50px;
