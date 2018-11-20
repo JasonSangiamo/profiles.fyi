@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { withRouter } from "react-router-dom";
 import classnames from "classnames";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
@@ -35,6 +34,13 @@ class login extends Component {
     };
 
     this.props.loginUser(userData);
+  }
+
+  // redirect user if user is authenticated
+  componentDidMount() {
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push("/dashboard");
+    }
   }
 
   // store redux state in component state

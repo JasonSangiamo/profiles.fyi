@@ -43,6 +43,13 @@ class Register extends Component {
     this.props.registerUser(newUser, this.props.history);
   }
 
+  // redirect user if user is authenticated
+  componentDidMount() {
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push("/dashboard");
+    }
+  }
+
   // get errors from redux state and store in component state
   componentWillReceiveProps(nextProps) {
     if (nextProps.errors) {
