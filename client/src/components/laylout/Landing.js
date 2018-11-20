@@ -10,13 +10,13 @@ class Landing extends Component {
           <h2 className="landing-subheader">
             The Easy Way for Great Companies to Connect with Great Talent
           </h2>
-          <Link class="btn btn-primary" to="/register" role="button">
+          <Link className="btn btn-primary" to="/register" role="button">
             Sign Up
           </Link>
-          <Link class="btn btn-primary" to="/login" role="button">
+          <Link className="btn btn-primary" to="/login" role="button">
             Log In
           </Link>
-          <Link class="btn btn-primary" to="#" role="button">
+          <Link className="btn btn-primary" to="#" role="button">
             Our API
           </Link>
         </div>
