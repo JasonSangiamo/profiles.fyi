@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import classnames from "classnames";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -79,7 +78,7 @@ class login extends Component {
             placeholder="Enter password"
             name="password"
             type="password"
-            label="password"
+            label="Password"
             value={this.state.password}
             onChange={this.onChange}
             error={errors.password}
