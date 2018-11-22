@@ -33,6 +33,20 @@ img {
   margin-bottom: -50px;
 }
 
+#landing-bottom {
+  margin-top: 100px;
+  padding-left: 250px;
+}
+
+.landing-bottom-subheader {
+  padding-left: 50px;
+  padding-top: 50px;
+}
+
+.landing-accent {
+  color: orange;
+}
+
 .landing-inner {
   padding-top: 80px;
 }

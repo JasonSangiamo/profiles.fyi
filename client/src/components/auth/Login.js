@@ -4,6 +4,8 @@ import classnames from "classnames";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
+import TextFieldGroup from "../common/TextFieldGroup";
+
 import { loginUser } from "../../actions/authActions";
 
 class login extends Component {
@@ -64,41 +66,24 @@ class login extends Component {
             Log into your profiles.fyi account. Don't have an account?{" "}
             <Link to="/register">Create one here </Link>
           </p>
-          <div className="form-group">
-            <label htmlFor="username">Username</label>
-            <input
-              type="text"
-              className={classnames("form-control", {
-                "is-invalid": errors.username
-              })}
-              id="username"
-              name="username"
-              placeholder="Enter username"
-              value={this.state.username}
-              onChange={this.onChange}
-            />
-            {errors.username && (
-              <div className="invalid-feedback">{errors.username}</div>
-            )}
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              className={classnames("form-control", {
-                "is-invalid": errors.password
-              })}
-              id="password"
-              name="password"
-              placeholder="Enter Password"
-              value={this.state.password}
-              onChange={this.onChange}
-            />
-            {errors.password && (
-              <div className="invalid-feedback">{errors.password}</div>
-            )}
-          </div>
+          <TextFieldGroup
+            placeholder="Enter username"
+            name="username"
+            type="text"
+            label="Username"
+            value={this.state.username}
+            onChange={this.onChange}
+            error={errors.username}
+          />
+          <TextFieldGroup
+            placeholder="Enter password"
+            name="password"
+            type="password"
+            label="password"
+            value={this.state.password}
+            onChange={this.onChange}
+            error={errors.password}
+          />
 
           <input type="submit" className="btn btn-info btn-block mt-4" />
         </form>

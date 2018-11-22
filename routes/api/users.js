@@ -34,7 +34,7 @@ router.post("/register", (req, res) => {
     //check if user exists
     if (user) {
       return res.status(400).json({
-        useranme: "Username already exists"
+        username: "Username already exists"
       });
     }
     // this email is not taken

@@ -5,6 +5,8 @@ import classnames from "classnames";
 import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
 
+import TextFieldGroup from "../common/TextFieldGroup";
+
 class Register extends Component {
   constructor() {
     super();
@@ -66,113 +68,72 @@ class Register extends Component {
           <h1 className="text-center">Register</h1>
           <p className="text-center">Create an Account with profiles.fyi</p>
 
-          <div className="form-group">
-            <label htmlFor="username">Username</label>
-            <input
-              type="text"
-              className={classnames("form-control", {
-                "is-invalid": errors.username
-              })}
-              id="username"
-              name="username"
-              placeholder="Enter username"
-              value={this.state.username}
-              onChange={this.onChange}
-            />
-            {errors.username && (
-              <div className="invalid-feedback">{errors.username}</div>
-            )}
-          </div>
+          {/* username input */}
+          <TextFieldGroup
+            placeholder="Enter username"
+            name="username"
+            type="text"
+            label="Username"
+            value={this.state.username}
+            onChange={this.onChange}
+            error={errors.username}
+          />
 
-          <div className="form-group">
-            <label htmlFor="email">Email Address</label>
-            <input
-              type="text"
-              className={classnames("form-control", {
-                "is-invalid": errors.email
-              })}
-              id="email"
-              name="email"
-              placeholder="Enter A Valid Email Address"
-              value={this.state.email}
-              onChange={this.onChange}
-            />
-            {errors.email && (
-              <div className="invalid-feedback">{errors.email}</div>
-            )}
-          </div>
+          {/* email input */}
+          <TextFieldGroup
+            placeholder="Enter valid email address"
+            name="email"
+            type="text"
+            label="Email Address"
+            value={this.state.email}
+            onChange={this.onChange}
+            error={errors.email}
+          />
 
-          <div className="form-group">
-            <label htmlFor="firstName">First Name</label>
-            <input
-              type="text"
-              className={classnames("form-control", {
-                "is-invalid": errors.firstName
-              })}
-              id="firstName"
-              name="firstName"
-              placeholder="Enter First Name"
-              value={this.state.firstName}
-              onChange={this.onChange}
-            />
-            {errors.firstName && (
-              <div className="invalid-feedback">{errors.firstName}</div>
-            )}
-          </div>
+          {/* firstName input */}
+          <TextFieldGroup
+            placeholder="Enter first name"
+            name="firstName"
+            type="text"
+            label="First Name"
+            value={this.state.firstName}
+            onChange={this.onChange}
+            error={errors.firstName}
+          />
 
-          <div className="form-group">
-            <label htmlFor="lastName">Last Name</label>
-            <input
-              type="text"
-              className={classnames("form-control", {
-                "is-invalid": errors.lastName
-              })}
-              id="lastName"
-              name="lastName"
-              placeholder="Enter Last Name"
-              value={this.state.lastName}
-              onChange={this.onChange}
-            />
-            {errors.lastName && (
-              <div className="invalid-feedback">{errors.lastName}</div>
-            )}
-          </div>
+          {/* lastName input */}
+          <TextFieldGroup
+            placeholder="Enter last name"
+            name="lastName"
+            type="text"
+            label="Last Name"
+            value={this.state.lastName}
+            onChange={this.onChange}
+            error={errors.lastName}
+          />
 
-          <div className="form-group">
-            <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              className={classnames("form-control", {
-                "is-invalid": errors.password
-              })}
-              id="password"
-              name="password"
-              placeholder="Enter Password"
-              value={this.state.password}
-              onChange={this.onChange}
-            />
-            {errors.password && (
-              <div className="invalid-feedback">{errors.password}</div>
-            )}
-          </div>
+          {/* password input */}
+          <TextFieldGroup
+            placeholder="Enter passord"
+            name="password"
+            type="password"
+            label="Password"
+            value={this.state.password}
+            onChange={this.onChange}
+            error={errors.password}
+          />
 
-          <div className="form-group">
-            <label htmlFor="password2">Confirm Password</label>
-            <input
-              type="password"
-              className={classnames("form-control", {
-                "is-invalid": errors.password2
-              })}
-              id="password2"
-              name="password2"
-              placeholder="Confirm Your Password"
-              value={this.state.password2}
-              onChange={this.onChange}
-            />
-            {errors.password2 && (
-              <div className="invalid-feedback">{errors.password2}</div>
-            )}
-          </div>
+          {/* confirm password input */}
+          <TextFieldGroup
+            placeholder="Confirm password"
+            name="password2"
+            type="password2"
+            label="Confirm Password"
+            value={this.state.password2}
+            onChange={this.onChange}
+            error={errors.password2}
+          />
+
           <input type="submit" className="btn btn-info btn-block mt-4" />
         </form>
       </div>

@@ -96,7 +96,7 @@ class Navbar extends Component {
             <input
               className="form-control mr-sm-2"
               type="search"
-              placeholder="Search"
+              placeholder="Search Profiles"
               aria-label="Search"
             />
             <button

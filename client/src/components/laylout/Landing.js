@@ -44,14 +44,31 @@ class Landing extends Component {
     );
 
     return (
-      <div className="landing">
-        <div className="text-white text-center">
-          <h1 className="landing-header">Welcome to profiles.fyi</h1>
-          <h2 className="landing-subheader">
-            The Easy Way for Great Companies to Connect with Great Talent
-          </h2>
-          {/* coniditonally display buttons */}
-          {isAuthenticated ? authButtons : guestButtons}
+      <div>
+        <div className="landing">
+          <div className="text-white text-center">
+            <h1 className="landing-header">Welcome to profiles.fyi</h1>
+            <h2 className="landing-subheader">
+              The Easy Way for Great Companies to Connect with Great Talent
+            </h2>
+            {/* coniditonally display buttons */}
+            {isAuthenticated ? authButtons : guestButtons}
+          </div>
+        </div>
+        <div id="landing-bottom" className="text-black">
+          <h2>How It Works</h2>
+          <h3 className="landing-bottom-subheader">
+            <span className="landing-accent">Create</span> an account and fill
+            out your profile
+          </h3>
+          <h3 className="landing-bottom-subheader">
+            <span className="landing-accent">Share</span> your profile with
+            employers
+          </h3>
+          <h3 className="landing-bottom-subheader">
+            <span className="landing-accent">Receive</span> offers from your
+            dream companies
+          </h3>
         </div>
       </div>
     );
