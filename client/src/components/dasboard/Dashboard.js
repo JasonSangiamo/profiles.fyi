@@ -22,6 +22,7 @@ class Dashboard extends Component {
     if (profile == null || loading) {
       dashboardContent = <Spinner />;
     }
+
     // if profile isn't loading and user has no profile, let user create profile
     // if user does already have a profile, display dashboard to user
     else {
@@ -35,7 +36,7 @@ class Dashboard extends Component {
             <p className="load text-muted">Welcome, {user.firstName}</p>
             <p>
               You haven't set up your profile yet. You can do so
-              <Link to="/create-profile">here</Link>
+              <Link to="/create-profile"> here</Link>
             </p>
           </div>
         );
