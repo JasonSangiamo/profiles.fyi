@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import TextFieldGroup from "../common/TextFieldGroup";
 import TextAreaFieldGroup from "../common/TextAreaFieldGroup";
 import SelectListGroup from "../common/SelectListGroup";
+import { createProfile } from "../../actions/profileActions";
 
 class CreateProfile extends Component {
   // creating component state values for form
@@ -26,10 +28,29 @@ class CreateProfile extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
+  // component needs to listen for updates in errors props
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({ errors: nextProps.errors });
+    }
+  }
+
   onSubmit(e) {
     e.preventDefault();
 
-    console.log("Profile form submitted");
+    const profileData = {
+      handle: this.state.handle,
+      comapny: this.state.comapny,
+      website: this.state.website,
+      location: this.state.location,
+      status: this.state.status,
+      skills: this.state.skills,
+      githubusername: this.state.githubusername,
+      linkedin: this.state.linkedin,
+      bio: this.state.bio
+    };
+
+    this.props.createProfile(profileData, this.props.history);
   }
 
   onChange(e) {
@@ -120,12 +141,20 @@ class CreateProfile extends Component {
                 <TextFieldGroup
                   placeholder="Github Username"
                   name="githubusername"
-                  value={this.state.githubUsername}
+                  value={this.state.githubusername}
                   onChange={this.onChange}
                   error={errors.githubusername}
                   info="If you provide your Github username, we'll pull through a list of your recent repositories. This can be a great way to showcase your work"
                 />
 
+                <TextFieldGroup
+                  placeholder="Linkedin URL"
+                  name="linkedin"
+                  value={this.state.linkedin}
+                  onChange={this.onChange}
+                  error={errors.linkedin}
+                  info="Providing your Linkedin is a great way to help people connect with you"
+                />
                 <TextAreaFieldGroup
                   placeholder="Your Bio"
                   name="bio"
@@ -160,4 +189,7 @@ const mapStateToProps = state => ({
   errors: state.errors
 });
 
-export default connect(mapStateToProps)(CreateProfile);
+export default connect(
+  mapStateToProps,
+  { createProfile }
+)(withRouter(CreateProfile));

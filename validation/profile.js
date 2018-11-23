@@ -37,7 +37,7 @@ module.exports = function validateProfileInput(data) {
   // validating website
   if (!isEmpty(data.website)) {
     // if user entered in website, check if it is a valid URL
-    if (!validator.isURL(data.webiste)) {
+    if (!validator.isURL(data.website)) {
       errors.website = "Please enter a valid URL";
     }
   }
