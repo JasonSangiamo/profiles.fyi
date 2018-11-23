@@ -64,6 +64,21 @@ export const deleteAccount = () => dispatch => {
   }
 };
 
+// adding new experience
+export const addExperience = (expData, history) => dispatch => {
+  axios
+    .post("/api/profile/experience", expData)
+    .then(res => {
+      history.push("/dashboard");
+    })
+    .catch(err => {
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      });
+    });
+};
+
 // Profile loading function, just lets reducer know that it is loading
 export const setProfileLoading = () => {
   return {
