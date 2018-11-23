@@ -1,4 +1,4 @@
-// root reducer
+// root reducer, links to all other reducers
 
 import { combineReducers } from "redux";
 import authReducer from "./authReducer";

@@ -9,6 +9,7 @@ const TextFieldGroup = ({
   label,
   error,
   info,
+  value,
   type,
   onChange,
   disabled
@@ -21,6 +22,7 @@ const TextFieldGroup = ({
         className={classnames("form-control", {
           "is-invalid": error
         })}
+        value={value}
         name={name}
         placeholder={placeholder}
         onChange={onChange}
@@ -35,6 +37,7 @@ const TextFieldGroup = ({
 TextFieldGroup.propTypes = {
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
+  value: PropTypes.string,
   info: PropTypes.string,
   error: PropTypes.string,
   type: PropTypes.string.isRequired,

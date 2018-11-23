@@ -5,7 +5,8 @@ import PropTypes from "prop-types";
 import TextFieldGroup from "../common/TextFieldGroup";
 import TextAreaFieldGroup from "../common/TextAreaFieldGroup";
 import SelectListGroup from "../common/SelectListGroup";
-import { createProfile } from "../../actions/profileActions";
+import { createProfile, getCurrentProfile } from "../../actions/profileActions";
+import isEmpty from "../../validation/is-empty";
 
 class CreateProfile extends Component {
   // creating component state values for form
@@ -28,10 +29,44 @@ class CreateProfile extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
+  //  this runs as soon as component mounts (loads), need to get the current profile in order to edit it
+  componentDidMount() {
+    this.props.getCurrentProfile();
+  }
+
   // component needs to listen for updates in errors props
   componentWillReceiveProps(nextProps) {
     if (nextProps.errors) {
       this.setState({ errors: nextProps.errors });
+    }
+
+    if (nextProps.profile.profile) {
+      const profile = nextProps.profile.profile;
+
+      // turns skills array into CSV
+      const skillsCSV = profile.skills.join(",");
+
+      //   need to make null fields into empty strings
+      profile.company = !isEmpty(profile.company) ? profile.company : "";
+      profile.website = !isEmpty(profile.website) ? profile.website : "";
+      profile.location = !isEmpty(profile.location) ? profile.location : "";
+      profile.bio = !isEmpty(profile.bio) ? profile.bio : "";
+      profile.githubusername = !isEmpty(profile.githubusername)
+        ? profile.githubusername
+        : "";
+      profile.linkedin = !isEmpty(profile.linkedin) ? profile.linkedin : "";
+
+      this.setState({
+        handle: profile.handle,
+        company: profile.company,
+        website: profile.website,
+        location: profile.location,
+        status: profile.status,
+        skills: skillsCSV,
+        githubusername: profile.githubusername,
+        bio: profile.bio,
+        linkedin: profile.linkedin
+      });
     }
   }
 
@@ -40,7 +75,7 @@ class CreateProfile extends Component {
 
     const profileData = {
       handle: this.state.handle,
-      comapny: this.state.comapny,
+      company: this.state.company,
       website: this.state.website,
       location: this.state.location,
       status: this.state.status,
@@ -76,7 +111,7 @@ class CreateProfile extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
-              <h1 className="display-4 text-center">Create Your Profile</h1>
+              <h1 className="display-4 text-center">Edit Your Profile</h1>
               <p className="lead text-center">
                 Give us some information so we can make your portfolio stand out
               </p>
@@ -179,6 +214,8 @@ class CreateProfile extends Component {
 }
 
 CreateProfile.propTypes = {
+  createProfile: PropTypes.func.isRequired,
+  getCurrentProfile: PropTypes.func.isRequired,
   profile: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired
 };
@@ -191,5 +228,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { createProfile }
+  { createProfile, getCurrentProfile }
 )(withRouter(CreateProfile));
