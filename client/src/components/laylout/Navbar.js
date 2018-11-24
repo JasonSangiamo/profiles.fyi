@@ -38,6 +38,11 @@ class Navbar extends Component {
             API
           </Link>
         </li>
+        <li className="nav-item">
+          <Link className="nav-link" to="/profiles">
+            Profiles
+          </Link>
+        </li>
       </ul>
     );
 
@@ -57,6 +62,11 @@ class Navbar extends Component {
         <li className="nav-item">
           <Link className="nav-link" to="/api/info">
             API
+          </Link>
+        </li>
+        <li className="nav-item">
+          <Link className="nav-link" to="/profiles">
+            Profiles
           </Link>
         </li>
         <li className="nav-item">
