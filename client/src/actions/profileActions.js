@@ -79,6 +79,21 @@ export const addExperience = (expData, history) => dispatch => {
     });
 };
 
+// adding new education
+export const addEducation = (eduDate, history) => dispatch => {
+  axios
+    .post("/api/profile/education", eduDate)
+    .then(res => {
+      history.push("/dashboard");
+    })
+    .catch(err => {
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      });
+    });
+};
+
 // Profile loading function, just lets reducer know that it is loading
 export const setProfileLoading = () => {
   return {

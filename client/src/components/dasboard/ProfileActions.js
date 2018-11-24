@@ -17,7 +17,7 @@ const ProfileActions = () => {
       {/* Add education link */}
       <Link className="btn btn-light" to="/add-education">
         <i className="fas fa-graduation-cap text-info mr-1" />
-        Edit Profile
+        Add Education
       </Link>
     </div>
   );
