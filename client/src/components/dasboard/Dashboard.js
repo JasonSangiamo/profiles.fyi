@@ -6,6 +6,7 @@ import { getCurrentProfile, deleteAccount } from "../../actions/profileActions";
 import Spinner from "../common/Spinner";
 import ProfileActions from "./ProfileActions";
 import Experience from "./Experience";
+import Education from "./Education";
 
 class Dashboard extends Component {
   // always get current profile on this page
@@ -44,6 +45,7 @@ class Dashboard extends Component {
             <ProfileActions />
             {/* pass in experience array to Experience component */}
             <Experience experience={profile.experience} />
+            <Education education={profile.education} />
             <div style={{ marginBottom: "60px" }} />
             <button
               onClick={this.onDeleteClick.bind(this)}
