@@ -23,6 +23,7 @@ import EditProfile from "./components/edit-profile/EditProfile";
 import AddExperience from "./components/add-credentials/AddExperience";
 import AddEducation from "./components/add-credentials/AddEducation";
 import { clearCurrentProfile } from "./actions/profileActions";
+import APIPage from "./components/api-page/APIPage";
 
 //check for token
 if (localStorage.jwtToken) {
@@ -62,6 +63,8 @@ class App extends Component {
             <div className="container">
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
+              <Route exact path="/api/info" component={APIPage} />
+
               {/* Switch block prevent react redirection issues for private routes */}
               <Switch>
                 <PrivateRoute exact path="/dashboard" component={Dashboard} />

@@ -94,6 +94,24 @@ export const addEducation = (eduDate, history) => dispatch => {
     });
 };
 
+// delete an experience
+export const deleteExperience = id => dispatch => {
+  axios
+    .delete(`/api/profile/experience/${id}`)
+    .then(res => {
+      dispatch({
+        type: GET_PROFILE,
+        payload: res.data
+      });
+    })
+    .catch(err => {
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      });
+    });
+};
+
 // Profile loading function, just lets reducer know that it is loading
 export const setProfileLoading = () => {
   return {
