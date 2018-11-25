@@ -23,7 +23,6 @@ import EditProfile from "./components/edit-profile/EditProfile";
 import AddExperience from "./components/add-credentials/AddExperience";
 import AddEducation from "./components/add-credentials/AddEducation";
 import { clearCurrentProfile } from "./actions/profileActions";
-import APIPage from "./components/api-page/APIPage";
 import Profiles from "./components/profiles/Profiles";
 import Profile from "./components/profile/Profile";
 import NotFound from "./components/not-found/NotFound";
@@ -66,7 +65,6 @@ class App extends Component {
             <div className="container">
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
-              <Route exact path="/api/info" component={APIPage} />
               <Route exact path="/profiles" component={Profiles} />
               <Route exact path="/profile/:handle" component={Profile} />
 

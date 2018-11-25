@@ -23,9 +23,6 @@ class Landing extends Component {
         <Link className="btn btn-primary" to="/login" role="button">
           Log In
         </Link>
-        <Link className="btn btn-primary" to="/api" role="button">
-          Our API
-        </Link>
       </div>
     );
 
@@ -36,9 +33,6 @@ class Landing extends Component {
         </Link>
         <Link className="btn btn-primary" to="/profile" role="button">
           View Your Profile
-        </Link>
-        <Link className="btn btn-primary" to="/api" role="button">
-          API Guide
         </Link>
       </div>
     );
