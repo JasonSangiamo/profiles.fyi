@@ -49,21 +49,6 @@ class Landing extends Component {
             {isAuthenticated ? authButtons : guestButtons}
           </div>
         </div>
-        <div id="landing-bottom" className="text-black">
-          <h2>How It Works</h2>
-          <h3 className="landing-bottom-subheader">
-            <span className="landing-accent">Create</span> an account and fill
-            out your profile
-          </h3>
-          <h3 className="landing-bottom-subheader">
-            <span className="landing-accent">Share</span> your profile with
-            employers
-          </h3>
-          <h3 className="landing-bottom-subheader">
-            <span className="landing-accent">Receive</span> offers from your
-            dream companies
-          </h3>
-        </div>
       </div>
     );
   }

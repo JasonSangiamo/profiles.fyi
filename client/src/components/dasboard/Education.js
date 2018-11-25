@@ -14,8 +14,6 @@ class Education extends Component {
     const education = this.props.education.map(edu => (
       <tr key={edu._id}>
         <td>{edu.school}</td>
-        <td>{edu.degree}</td>
-        <td>{edu.fieldOfStudy}</td>
         <td>{edu.location}</td>
         <td>
           <Moment format="YYYY/MM/DD">{edu.from}</Moment> -
@@ -42,8 +40,6 @@ class Education extends Component {
           <thead>
             <tr>
               <th>School</th>
-              <th>Degree</th>
-              <th>Field Of Study</th>
               <th>Location</th>
               <th>Period</th>
               <th />
