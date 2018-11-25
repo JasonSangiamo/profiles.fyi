@@ -31,9 +31,6 @@ class Landing extends Component {
         <Link className="btn btn-primary" to="/dashboard" role="button">
           Dasboard
         </Link>
-        <Link className="btn btn-primary" to="/profile" role="button">
-          View Your Profile
-        </Link>
       </div>
     );
 
