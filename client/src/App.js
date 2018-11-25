@@ -25,6 +25,7 @@ import AddEducation from "./components/add-credentials/AddEducation";
 import { clearCurrentProfile } from "./actions/profileActions";
 import APIPage from "./components/api-page/APIPage";
 import Profiles from "./components/profiles/Profiles";
+import Profile from "./components/profile/Profile";
 
 //check for token
 if (localStorage.jwtToken) {
@@ -66,6 +67,7 @@ class App extends Component {
               <Route exact path="/login" component={Login} />
               <Route exact path="/api/info" component={APIPage} />
               <Route exact path="/profiles" component={Profiles} />
+              <Route exact path="/profile/:handle" component={Profile} />
 
               {/* Switch block prevent react redirection issues for private routes */}
               <Switch>
