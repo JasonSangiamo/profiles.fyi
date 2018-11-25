@@ -19,7 +19,7 @@ class CreateProfile extends Component {
       location: "",
       status: "",
       skills: "",
-      githubusername: "",
+      githubUsername: "",
       bio: "",
       linkedin: "",
       errors: {}
@@ -51,8 +51,8 @@ class CreateProfile extends Component {
       profile.website = !isEmpty(profile.website) ? profile.website : "";
       profile.location = !isEmpty(profile.location) ? profile.location : "";
       profile.bio = !isEmpty(profile.bio) ? profile.bio : "";
-      profile.githubusername = !isEmpty(profile.githubusername)
-        ? profile.githubusername
+      profile.githubUsername = !isEmpty(profile.githubUsername)
+        ? profile.githubUsername
         : "";
       profile.linkedin = !isEmpty(profile.linkedin) ? profile.linkedin : "";
 
@@ -63,7 +63,7 @@ class CreateProfile extends Component {
         location: profile.location,
         status: profile.status,
         skills: skillsCSV,
-        githubusername: profile.githubusername,
+        githubUsername: profile.githubUsername,
         bio: profile.bio,
         linkedin: profile.linkedin
       });
@@ -80,7 +80,7 @@ class CreateProfile extends Component {
       location: this.state.location,
       status: this.state.status,
       skills: this.state.skills,
-      githubusername: this.state.githubusername,
+      githubUsername: this.state.githubUsername,
       linkedin: this.state.linkedin,
       bio: this.state.bio
     };
@@ -175,10 +175,10 @@ class CreateProfile extends Component {
 
                 <TextFieldGroup
                   placeholder="Github Username"
-                  name="githubusername"
-                  value={this.state.githubusername}
+                  name="githubUsername"
+                  value={this.state.githubUsername}
                   onChange={this.onChange}
-                  error={errors.githubusername}
+                  error={errors.githubUsername}
                   info="If you provide your Github username, we'll pull through a list of your recent repositories. This can be a great way to showcase your work"
                 />
 
