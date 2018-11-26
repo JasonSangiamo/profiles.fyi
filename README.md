@@ -4,10 +4,9 @@ This project is intended to help streamline the process of creating an online po
 
 ## Getting Started
 
-If you want to clone this repository. The firs thing you need to do after cloning is install backend and frontend dependencies to do this, run 
+If you want to run this repository locally, the first thing you need to do after cloning is to install backend and frontend dependencies to do this, run 
 ~~~
 npm install
-
 ~~~
 
 from both the project root and from /client.
