@@ -12,7 +12,7 @@ npm install
 
 from both the project root and from /client.
 
-Second, you need to create a database that the application can connect to. I choose to use mlab which allows for free database storage (see https://mlab.com/). Once the database is created, you must create /config.keys_dev and fill out your key information like so:
+Second, you need to create a database that the application can connect to. I choose to use mlab which allows for free database storage (see https://mlab.com/). Once the database is created, you must create /config.keys_dev.js and fill out your key information like so:
 ~~~
 module.exports = {
   mongoURI:
