@@ -89,7 +89,7 @@ class AddExperience extends Component {
                   error={errors.company}
                 />
                 <br />
-                <h6>* Job Ttitle</h6>
+                <h6>* Job Title</h6>
                 <TextFieldGroup
                   placeholder="* Job Title"
                   name="title"
