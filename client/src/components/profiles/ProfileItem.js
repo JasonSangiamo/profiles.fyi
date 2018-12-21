@@ -22,9 +22,10 @@ class ProfileItem extends Component {
               {profile.user.firstName} {profile.user.lastName}
             </h3>
             <p>
-              {profile.status}{" "}
               {isEmpty(profile.company) ? null : (
-                <span> at {profile.company}</span>
+                <span>
+                  {profile.status} at {profile.company}
+                </span>
               )}
             </p>
             <p>
