@@ -24,6 +24,7 @@ class ProfileGithub extends Component {
       .then(data => {
         if (this.refs.profilesfyi) {
           this.setState({ repos: data });
+          console.log(data);
         }
       })
       .catch(err => console.log(err));
@@ -49,6 +50,9 @@ class ProfileGithub extends Component {
             <p>{repo.description}</p>
           </div>
           <div className="col-md-6">
+            <span className="badge badge-primary mr-1">
+              Language: {repo.language}
+            </span>
             <span className="badge badge-info mr-1">
               Stars: {repo.stargazers_count}
             </span>
