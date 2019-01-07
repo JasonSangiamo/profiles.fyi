@@ -19,8 +19,14 @@ class Profile extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.profile.profiles === null && this.props.profile.loading) {
+    if (
+      nextProps.profile.profiles === null &&
+      !this.props.profile.loading &&
+      !localStorage.profileLoaded
+    ) {
       this.props.history.push("/not-found");
+    } else {
+      localStorage.setItem("profileLoaded", true);
     }
   }
 
